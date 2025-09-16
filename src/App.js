@@ -1,14 +1,18 @@
 import React from "react";
-import {Grid,Box,Typography} from '@mui/material';
+import {Grid,Box,Typography, useMediaQuery, useTheme} from '@mui/material';
 import m from './images/wallet.webp';      
 import './mybtn.css';
 import AppContextProvider from "./context/AppContext";
 import { ToastContainer } from "react-toastify";
 
-
+import LapLayout from "./pages/LapLayout";
 import Layout from "./pages/Layout";
 
 const App = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  
+  
   return (
     <>
       <Grid container sx={{ minHeight: "100vh" }}>
@@ -48,16 +52,42 @@ const App = () => {
         </Grid>
 
         {/* Sidebar / Layout */}
-        <Grid item xs={12}     >
+        <Grid item xs={12}>
           <AppContextProvider>
-            <Layout />
+            {isMobile ? <Layout /> : <LapLayout />}
           </AppContextProvider>
         </Grid>
+      
       </Grid>
 
       <ToastContainer position="top-right" autoClose={3000} />
+      
+      <Box  component="footer"
+              sx={{
+                      py: 2,
+                      textAlign: 'center',
+                      bgcolor: '#f5f5f5',
+                      position: 'fixed',
+                      width: '100%',
+                      bottom: 0,
+           }}
+         >
+                      <Typography variant="body2">&copy; built by mamta</Typography>
+         </Box>
     </>
   );
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+        
+    

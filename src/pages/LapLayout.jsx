@@ -1,21 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { Box, Drawer, Typography,List, ListItem, ListItemText, AppBar,Toolbar, IconButton} from "@mui/material";
+import { Box, Drawer, Typography,List, ListItem, ListItemText} from "@mui/material";
 import { green } from "@mui/material/colors";
 import AddExpense from "./AddExpense";
 import DashBoard from "./DashBoard";
 import AddIncome from "./AddIncome";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import AllTransactions from "./AllTransactions";
 import IncomeTrans from "./IncomeTrans"; 
 import ExpenseTrans from "./ExpenseTrans";
-import { useState } from "react";
-function Layout() {
 
-  const [open, setOpen] = useState(false);
+function LapLayout() {
 
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
 
 
 
@@ -25,7 +20,7 @@ function Layout() {
       const menuList = (
             <List>
               
-            <ListItem button component={Link} to="/dashboard"  onClick={toggleDrawer}>
+            <ListItem button component={Link} to="/dashboard" >
                 <ListItemText primary="DashBoard"  primaryTypographyProps={{
       sx: { 
         color: green[600],   // try different shades
@@ -33,7 +28,7 @@ function Layout() {
       }
     }}/>
               </ListItem>
-              <ListItem button component={Link} to="/add-income" onClick={toggleDrawer}>
+              <ListItem button component={Link} to="/add-income" >
                 <ListItemText primary="Add Income"  primaryTypographyProps={{
       sx: { 
         color: green[600],   // try different shades
@@ -41,12 +36,12 @@ function Layout() {
       }
     }}/>
               </ListItem>
-              <ListItem button component={Link} to="/add-expense" onClick={toggleDrawer}>
+              <ListItem button component={Link} to="/add-expense" >
                 <ListItemText primary="Add Expense"  primaryTypographyProps={{
     sx: { color: green[600], fontWeight: "bold" } // 500, 600, 700 → darker
   }} />
               </ListItem>
-              <ListItem button component={Link} to="/all-transactions" onClick={toggleDrawer}>
+              <ListItem button component={Link} to="/all-transactions" >
                 <ListItemText primary="All Transactions" primaryTypographyProps={{
       sx: { 
         color: green[600],   // try different shades
@@ -54,7 +49,7 @@ function Layout() {
       }
     }} />
               </ListItem>
-              <ListItem button component={Link} to="/income-trans" onClick={toggleDrawer}>
+              <ListItem button component={Link} to="/income-trans" >
                 <ListItemText primary="Income Transactions" primaryTypographyProps={{
       sx: { 
         color: green[600],   // try different shades
@@ -62,7 +57,7 @@ function Layout() {
       }
     }} />
               </ListItem>
-              <ListItem button component={Link} to="/expense-trans" onClick={toggleDrawer}>
+              <ListItem button component={Link} to="/expense-trans" >
                 <ListItemText primary="Expense Transactions" primaryTypographyProps={{
       sx: { 
         color: green[600],   // try different shades
@@ -76,28 +71,10 @@ function Layout() {
 
 
             <Router>
-
-
-<AppBar position="fixed" sx={{ bgcolor: "transparent",zIndex: (theme) => theme.zIndex.drawer + 1}}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={toggleDrawer}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Expense Tracker
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer anchor="left" open={open} onClose={toggleDrawer}>
-      <Box sx={(theme) => theme.mixins.toolbar} />
-          {menuList}
-        
-      </Drawer>
+<Box sx={{display:"flex"}}>
+<Box  sx={{width:"100%" ,mt:2}}>
+   {menuList}
+     </Box>   
 
 
  
@@ -119,9 +96,9 @@ function Layout() {
       
         </Routes>
         </Box>
-      
+      </Box>
     </Router>
   );
 }
 
-export default Layout;
+export default LapLayout;
