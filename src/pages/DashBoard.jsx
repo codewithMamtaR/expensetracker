@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import {Box,Typography} from "@mui/material";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, Legend ,ResponsiveContainer} from "recharts";
 
 const DashBoard = ()=>{
 
@@ -24,7 +24,11 @@ const DashBoard = ()=>{
  <Box component="h1" sx={{ fontFamily:"Dancing Script" ,fontSize:"40 px"}}>DashBoard</Box>
 
       <Box component="h3">Income vs Expense vs Balance</Box>
-      <PieChart width={600} height={400}>
+
+      <Box sx={{ width: "100%", height: 300 }}>
+      <ResponsiveContainer>
+
+      <PieChart >
         <Pie
           data={data}
           cx="50%"
@@ -43,7 +47,7 @@ const DashBoard = ()=>{
         <Legend />
       </PieChart>
 
-
+</ResponsiveContainer>
 </Box>
    
 
