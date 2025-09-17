@@ -70,7 +70,7 @@ const DashBoard = ()=>{
            </Box>
     </Box>
     
-    
+ </Box>   
     </>
     )
 }
