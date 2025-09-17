@@ -15,7 +15,7 @@ const App = () => {
   
   return (
     <>
-      <Grid container sx={{ minHeight: "100vh" }}>
+      <Grid container sx={{ minHeight: "100vh" ,pb: "80px"}}>
         
         <Grid item xs={12} >
           <Box
@@ -70,6 +70,7 @@ const App = () => {
                       position: 'fixed',
                       width: '100%',
                       bottom: 0,
+                       height: "60px"
            }}
          >
                       <Typography variant="body2">&copy; built by mamta</Typography>
