@@ -19,25 +19,10 @@ const DashBoard = ()=>{
      const COLORS=["#FF9A8B", "#FF6A88", "#FF99AC"];
      return (
           <>
-      <Box>
-            <Box component="h1" sx={{ fontFamily:"Dancing Script" ,fontSize:"40 px"}}>DashBoard</Box>
-            <Box>
-                <Box component="h1">Total Income</Box>
-                <Typography>₹{totalIncome.toFixed(2)}</Typography>
-            </Box>
-        
-            <Box>
-                <Box component="h1" >Total Expense</Box>
-                <Typography>₹{totalExpense.toFixed(2)}</Typography>
-            </Box>
+<Box >
 
-            <Box>
-              <Box component="h1">Total Balance</Box>
-              <Typography>₹{totalBalance.toFixed(2)}</Typography>
-           </Box>
-    </Box>
-    
-    <Box sx={{textAlign:"center"}}>
+ <Box component="h1" sx={{ fontFamily:"Dancing Script" ,fontSize:"40 px"}}>DashBoard</Box>
+
       <Box component="h3">Income vs Expense vs Balance</Box>
       <PieChart width={600} height={400}>
         <Pie
@@ -61,6 +46,27 @@ const DashBoard = ()=>{
 
 </Box>
    
+
+
+      <Box>
+           
+            <Box>
+                <Box component="h1">Total Income</Box>
+                <Typography>₹{totalIncome.toFixed(2)}</Typography>
+            </Box>
+        
+            <Box>
+                <Box component="h1" >Total Expense</Box>
+                <Typography>₹{totalExpense.toFixed(2)}</Typography>
+            </Box>
+
+            <Box>
+              <Box component="h1">Total Balance</Box>
+              <Typography>₹{totalBalance.toFixed(2)}</Typography>
+           </Box>
+    </Box>
+    
+    
     </>
     )
 }

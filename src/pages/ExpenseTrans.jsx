@@ -39,19 +39,26 @@ const ExpenseTrans = () =>
                  key={index}
                  divider
                  sx={{
-                   display: "flex",
-                   justifyContent: "space-between",
-                   alignItems: "center",
+                  display: "flex",flexDirection: { xs: "column", sm: "row" },
+                  justifyContent: "space-between",
+                  alignItems: { xs: "flex-start", sm: "center" },gap:1
                  }}
                >
                  {/* Transaction details */}
                  <ListItemText
                    primary={`${new Date(transaction.date).toLocaleDateString()} — ${transaction.description}`}
+                   primaryTypographyProps={{
+                    sx: {
+                      fontWeight: 500,
+                      whiteSpace: { xs: "normal", sm: "nowrap" }, // wrap on mobile, single line on bigger screens
+                    },
+                  }}
+                   
                    secondary={`${transaction.type} | ${transaction.category} | ₹${transaction.amount}`}
                  />
            
                  
-                 <ListItemSecondaryAction>
+           <Box sx={{ display: "flex", gap: 1, alignSelf: { xs: "flex-end", sm: "center" } }}>
                    <IconButton
                      edge="end"
                      color="primary"
@@ -67,7 +74,7 @@ const ExpenseTrans = () =>
                    >
                      <DeleteIcon />
                    </IconButton>
-                 </ListItemSecondaryAction>
+                 </Box>
                </ListItem>
              ))}
            </List>

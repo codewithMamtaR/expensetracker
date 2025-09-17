@@ -51,8 +51,9 @@ const AddExpense = ({editExpData,onClose}) =>
         background: "#fff",
         padding: "12px",
         borderRadius: "12px",
-        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",gap:4,
-        width: "350px",
+        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",gap:3,
+        width: { xs: "90%", sm: "320px", md: "350px" }, 
+        maxWidth: "100%"
       }}
     >
      
@@ -87,10 +88,18 @@ const AddExpense = ({editExpData,onClose}) =>
             <TextField   label="Enter Description" name="description" value={formData.description}
                onChange={(e) =>
                  setformData({ ...formData, description: e.target.value })}   />        
-
+<Box
+  sx={{
+    display: "flex",
+    gap: 2,
+    flexWrap: "wrap", // allows wrapping
+    justifyContent: "center", // keeps them centered
+  }}
+>
           
       <Button type="submit">{editExpData ? "Update" : "Add"}</Button>
       {onClose && <Button type="Button" onClick={onClose}>Cancel</Button>}
+      </Box>
       </Box>
   );
 

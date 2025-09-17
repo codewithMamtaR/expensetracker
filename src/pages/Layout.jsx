@@ -89,7 +89,7 @@ function Layout() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Expense Tracker
+            Explore
           </Typography>
         </Toolbar>
       </AppBar>

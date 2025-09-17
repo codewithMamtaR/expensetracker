@@ -89,7 +89,7 @@ function LapLayout() {
             <Route path="/income-trans" element={<IncomeTrans />} />
             <Route path="/expense-trans" element={<ExpenseTrans />} />
             <Route path="/" element={<Box><Typography   sx={{fontFamily:"Dancing Script",
-              fontSize: { xs: "1rem", sm: "1.2rem", md: "1.5rem" },
+              fontSize: { xs: "2rem", sm: "2.2rem", md: "3.5rem" },
                             lineHeight: 1.4,
                 wordWrap: "break-word",
   }} >  Empower your Finances , Empower your Life</Typography> </Box>} />

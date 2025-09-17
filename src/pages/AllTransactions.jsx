@@ -9,33 +9,40 @@ const AllTransactions = () =>{
 return(
     <Box >
         <Box component="h1"> All Transactions</Box>
-        <Box>
-            <table border="1">
+        <Box  sx={{ overflowX: "auto", width: "100%",
+    borderRadius: "12px",
+    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
+    mt: 2}}>
+            <table style={{
+      width: "100%",
+      borderCollapse: "collapse",
+      fontFamily: "Arial, sans-serif",
+    }}>
                 <thead>
                     <tr>
-                        <th >Name</th>
-                        <th >Category</th>
-                        <th >Date</th>
-                        <th >type</th>
-                        <th >Amount</th>
+                        <th style={{ background: "#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>Name</th>
+                        <th style={{ background: "#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>Category</th>
+                        <th style={{ background: "#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>Date</th>
+                        <th style={{ background:"#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>type</th>
+                        <th style={{ background: "#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                     {allTransactions.map((transaction,index)=>(
-                        <tr key={index } >
-                            <td>
+                        <tr key={index }style={{ borderBottom: "1px solid #ddd" }} >
+                            <td style={{ padding: "10px" }}>
                                 {transaction.description}
                             </td>
-                            <td>
+                            <td style={{ padding: "10px" }}>
                                 {transaction.category}
                             </td>
-                            <td>
+                            <td style={{ padding: "10px" }}>
                                 {(new Date (transaction.date).toLocaleDateString())}
                             </td>
-                            <td>
+                            <td  style={{ padding: "10px" }}>
                                 {transaction.type==='income'?"income":"Expense"}
                             </td>
-                            <td>
+                            <td  style={{ padding: "10px" }}>
                                 {transaction.amount}
                             </td>
                         </tr>
