@@ -25,7 +25,7 @@ const DashBoard = ()=>{
 
       <Box component="h3">Income vs Expense vs Balance</Box>
 
-      <Box sx={{ width: "100%", height: 300 }}>
+      <Box sx={{ width: "100%", height: 400 }}>
       <ResponsiveContainer width="100%" height="100%">
 
       <PieChart >
@@ -34,7 +34,7 @@ const DashBoard = ()=>{
           cx="50%"
           cy="50%"
           labelLine={false}
-          outerRadius={120}
+          outerRadius="80%"
           fill="#8884d8"
           dataKey="value"
           label={({ name, value }) => `${name}: ${value}`}
