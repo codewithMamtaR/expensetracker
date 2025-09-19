@@ -25,8 +25,8 @@ const DashBoard = ()=>{
 
       <Box component="h3">Income vs Expense vs Balance</Box>
 
-      <Box sx={{ width: "100%", height: "100%" }}>
-      <ResponsiveContainer>
+      <Box sx={{ width: "100%", height: 300 }}>
+      <ResponsiveContainer width="100%" height="100%">
 
       <PieChart >
         <Pie
