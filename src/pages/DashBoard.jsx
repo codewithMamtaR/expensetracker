@@ -38,10 +38,10 @@ const DashBoard = ()=>{
 
       <Box sx={{  display: "flex", flexDirection: isLaptop ? "row" : "column", gap: 4,width: "100%"  }} >
       
-      <Box  sx={{ minHeight: isLaptop ? 500 : 300 ,  minWidth: isLaptop ? "90%" : "100%",flex: 1,overflow: "visible"  }}>
+      <Box  sx={{ minHeight: isLaptop ? 500 : 300 ,  minWidth: isLaptop ? "90%" : "100%",flex: 1,overflow: "visible",position: "relative"  }}>
       <ResponsiveContainer width="100%" height={isLaptop ? 500 : 300}   overflow="visible">
       
-      <PieChart >
+      <PieChart margin={{ top: 20, right: 40, left: 40, bottom: 20 }} >
         <Pie
           data={data}
           cx="50%"
@@ -70,17 +70,17 @@ const DashBoard = ()=>{
       <Box   sx={{ flex: 1,display: "flex",flexDirection: "column",gap: 3}}>
            
             <Box>
-                <Box component="h1">Total Income</Box>
+                <Box component="h1" sx={{fontFamily: "Dancing Script"}}>Total Income</Box>
                 <Typography>₹{totalIncome.toFixed(2)}</Typography>
             </Box>
         
             <Box>
-                <Box component="h1" >Total Expense</Box>
+                <Box component="h1" sx={{fontFamily: "Dancing Script"}} >Total Expense</Box>
                 <Typography>₹{totalExpense.toFixed(2)}</Typography>
             </Box>
 
             <Box>
-              <Box component="h1">Total Balance</Box>
+              <Box component="h1" sx={{fontFamily: "Dancing Script"}}>Total Balance</Box>
               <Typography>₹{totalBalance.toFixed(2)}</Typography>
            </Box>
     </Box>
