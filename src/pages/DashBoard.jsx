@@ -39,7 +39,7 @@ const DashBoard = ()=>{
       <Box sx={{  display: "flex", flexDirection: isLaptop ? "row" : "column", gap: 4,width: "100%"  }} >
       
       <Box  sx={{ minHeight: isLaptop ? 500 : 300 ,  minWidth: isLaptop ? "90%" : "100%",flex: 1,overflow: "visible"  }}>
-      <ResponsiveContainer width="100%"  height="100%"  overflow="visible">
+      <ResponsiveContainer width="100%" height={isLaptop ? 500 : 300}   overflow="visible">
       
       <PieChart >
         <Pie
@@ -47,7 +47,7 @@ const DashBoard = ()=>{
           cx="50%"
           cy="50%"
           labelLine={false}
-            outerRadius="90%"
+          outerRadius={isLaptop ? "90%" : "70%"}
           fill="#8884d8"
           dataKey="value"
           label={({ name, value }) => `${name}: ${value}`}
