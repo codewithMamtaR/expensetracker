@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
-import {Box,Typography} from "@mui/material";
+import {Box,Typography,useTheme, useMediaQuery} from "@mui/material";
 import { PieChart, Pie, Cell, Tooltip, Legend ,ResponsiveContainer} from "recharts";
 
 const DashBoard = ()=>{
@@ -17,24 +17,37 @@ const DashBoard = ()=>{
       ];
     
      const COLORS=["#FF9A8B", "#FF6A88", "#FF99AC"];
+     
+     const theme = useTheme();
+  const isLaptop = useMediaQuery(theme.breakpoints.up("md")); 
      return (
           <>
-<Box >
+<Box sx={{ width: "100%" }}>
 
- <Box component="h1" sx={{ fontFamily:"Dancing Script" ,fontSize:"40 px"}}>DashBoard</Box>
+      <Box sx={{ mb: 2 }}>
+        <Typography component="h1" sx={{ fontFamily: "Dancing Script", fontSize: "40px", fontWeight: "bold" }}>
+          DashBoard
+        </Typography>
+      </Box>
 
-      <Box component="h3">Income vs Expense vs Balance</Box>
+      <Box sx={{ mb: 4 }}>
+        <Typography component="h3" sx={{ fontSize: "1.2rem" ,fontFamily: "Dancing Script"}}>
+          Income vs Expense vs Balance
+        </Typography>
+      </Box>
 
-      <Box sx={{ width: "100%", height: 400 }}>
-      <ResponsiveContainer width="100%" height="100%">
-
+      <Box sx={{  display: "flex", flexDirection: isLaptop ? "row" : "column", gap: 4,width: "100%"  }} >
+      
+      <Box  sx={{ minHeight: isLaptop ? 500 : 300 ,  minWidth: isLaptop ? "90%" : "100%",flex: 1,overflow: "visible"  }}>
+      <ResponsiveContainer width="100%"  height="100%"  overflow="visible">
+      
       <PieChart >
         <Pie
           data={data}
           cx="50%"
           cy="50%"
           labelLine={false}
-          outerRadius="80%"
+            outerRadius="90%"
           fill="#8884d8"
           dataKey="value"
           label={({ name, value }) => `${name}: ${value}`}
@@ -43,16 +56,18 @@ const DashBoard = ()=>{
             <Cell key={`cell-${index}`} fill={COLORS[index]} />
           ))}
         </Pie>
-        <Tooltip />
+        <Tooltip   wrapperStyle={{ zIndex: 2000 }}   />
         <Legend />
-      </PieChart>
 
-</ResponsiveContainer>
+      </PieChart>
+      
+      </ResponsiveContainer>
+
 </Box>
    
 
 
-      <Box>
+      <Box   sx={{ flex: 1,display: "flex",flexDirection: "column",gap: 3}}>
            
             <Box>
                 <Box component="h1">Total Income</Box>
@@ -69,7 +84,7 @@ const DashBoard = ()=>{
               <Typography>₹{totalBalance.toFixed(2)}</Typography>
            </Box>
     </Box>
-    
+    </Box>
  </Box>   
     </>
     )

@@ -1,20 +1,39 @@
 import React from "react";
-import {Grid,Box,Typography, useMediaQuery, useTheme} from '@mui/material';
+import {Grid,Box,Typography, useMediaQuery} from '@mui/material';
 import m from './images/wallet.webp';      
 import './mybtn.css';
+import { GlobalStyles } from "@mui/material";
 import AppContextProvider from "./context/AppContext";
 import { ToastContainer } from "react-toastify";
-
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LapLayout from "./pages/LapLayout";
 import Layout from "./pages/Layout";
 
 const App = () => {
-  const theme = useTheme();
+  const theme = createTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   
   
   return (
     <>
+     <ThemeProvider theme={theme}>
+     <GlobalStyles
+  styles={{
+    ".recharts-responsive-container": {
+      overflow: "visible !important",
+    },
+    ".recharts-wrapper": {
+      overflow: "visible !important",
+    },
+    ".recharts-surface": {
+      overflow: "visible !important",
+    },
+  }}
+/>      
+      
+      
+      
+      
       <Grid container sx={{ minHeight: "100vh" ,pb: "40px"}}>
         
         <Grid item xs={12} >
@@ -52,12 +71,15 @@ const App = () => {
         </Grid>
 
         {/* Sidebar / Layout */}
+     
+       
+     
         <Grid item xs={12}>
           <AppContextProvider>
             {isMobile ? <Layout /> : <LapLayout />}
           </AppContextProvider>
         </Grid>
-      
+     
       </Grid>
 
       <ToastContainer position="top-right" autoClose={3000} />
@@ -75,7 +97,9 @@ const App = () => {
          >
                       <Typography variant="body2">&copy; built by mamta</Typography>
          </Box>
+         </ThemeProvider>
     </>
+
   );
 };
 
