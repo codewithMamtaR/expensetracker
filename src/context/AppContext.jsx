@@ -1,13 +1,11 @@
 import {children, createContext, useEffect, useState} from  "react";
-
 import {toast} from 'react-toastify';
 
 //context api allows u to share state across the entire app  or between multiple components without passing
 //props manually
 
-
-//we are giving values to everyone
-
+//we are giving values IncomeData and ExpenseData and several functions to everyone
+//Code to add data finally to the local storage
 
 export const AppContext= createContext ();
  const AppContextProvider = ({children}) =>{
@@ -27,18 +25,13 @@ export const AppContext= createContext ();
 
 
     const addInc=async(amount,type,category,description,date,id)=>
-{
+    {
     
     
-    try{
-        
-
+    try{//1.get alltransactions from local storage in existing 
         const existing = JSON.parse(localStorage.getItem("IncomeInfo")) || [];
       
         // 2. Create a new transaction object
-
-
-
         const newTransaction = {
           
           amount,
@@ -56,28 +49,21 @@ export const AppContext= createContext ();
 
         let updated;
         if (index !== -1) {
-          // ✅ Update existing transaction
+          // update existing trans
           existing[index] = newTransaction;
           updated = [...existing];
           toast.success("Income updated");
         } else {
-          // ✅ Add new transaction
+          // Add new transaction
           updated = [...existing, newTransaction];
           toast.success("Income added");
         }
-    
-  
-  
-        
-    
-        // 4. Save back to localStorage
+      // 4. Save back to localStorage
         localStorage.setItem("IncomeInfo", JSON.stringify(updated));
     
         // 5. Update state (optional, if you are showing transactions in UI)
         setIncomeData(updated);
-    
-        
-      } 
+    } 
     
     catch(error)
     {
@@ -87,14 +73,9 @@ export const AppContext= createContext ();
 };
 
 const addExp=async(amount,type,category,description,date,id)=>
-    {
-        
-        
-        try{
-            
-    
+{
+    try{
             const existing = JSON.parse(localStorage.getItem("ExpenseInfo")) || [];
-          
             // 2. Create a new transaction object
             const newTransaction = {
               
@@ -105,35 +86,26 @@ const addExp=async(amount,type,category,description,date,id)=>
               date,
               id
             };
-        
             // 3. Add the new transaction to array
             const index = existing.findIndex(txn => txn.id === id);
 
             let updated;
             if (index !== -1) {
-              // ✅ Update existing transaction
+              //  Update existing transaction
               existing[index] = newTransaction;
               updated = [...existing];
               toast.success("Expense updated");
             } else {
-              // ✅ Add new transaction
+              // Add new transaction
               updated = [...existing, newTransaction];
               toast.success("Expense added");
             }
-        
-      
-      
-            
-        
-            // 4. Save back to localStorage
+        // 4. Save back to localStorage
             localStorage.setItem("ExpenseInfo", JSON.stringify(updated));
-        
-            // 5. Update state (optional, if you are showing transactions in UI)
+        // 5. Update state (optional, if you are showing transactions in UI)
             setExpenseData(updated);
-    
-            // 6. Show success
-            
-          } 
+        // 6. Show success
+        } 
         
         catch(error)
         {
@@ -141,30 +113,16 @@ const addExp=async(amount,type,category,description,date,id)=>
         }
     
     };
-
-    const delInc=async(txn)=>
+const delInc=async(txn)=>
       {
-          
-          
           try{
             const existing = JSON.parse(localStorage.getItem("IncomeInfo")) || [];
-
             // 2. Remove the transaction with the given id
             const updated = existing.filter((tx) => tx.id !== txn.id);
-          
-      
             localStorage.setItem("IncomeInfo", JSON.stringify(updated));
-            
-       
-      
-          
-      
-              setIncomeData(updated);
-      
-        
-              toast.success("Income deleted");
+            setIncomeData(updated);
+            toast.success("Income deleted");
             } 
-          
           catch(error)
           {
               console.log(error)
@@ -172,30 +130,16 @@ const addExp=async(amount,type,category,description,date,id)=>
       
       };
   
-
-      const delExp=async(txn)=>
-        {
-            
-            
-            try{
+const delExp=async(txn)=>
+{
+      try{
               const existing = JSON.parse(localStorage.getItem("ExpenseInfo")) || [];
-  
               // 2. Remove the transaction with the given id
               const updated = existing.filter((tx) => tx.id !== txn.id);
-            
-        
               localStorage.setItem("ExpenseInfo", JSON.stringify(updated));
-              
-         
-        
-            
-        
-                setExpenseData(updated);
-        
-          
-                toast.success("Expense deleted");
+              setExpenseData(updated);
+              toast.success("Expense deleted");
               } 
-            
             catch(error)
             {
                 console.log(error)
@@ -203,10 +147,7 @@ const addExp=async(amount,type,category,description,date,id)=>
         
         };
     
-  
-
-    
-    return (
+  return (
        < AppContext.Provider value = {{addExp,addInc,IncomeData,ExpenseData,delInc,delExp}} >
     {children}
     </AppContext.Provider>

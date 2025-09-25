@@ -2,7 +2,7 @@ import React, { useState ,useEffect,useContext} from "react";
 import {Box,TextField,MenuItem,Button,Typography} from  '@mui/material';
 import {AppContext} from "../context/AppContext";
 
-//    <Box sx={{display:'flex',flexDirection:{ xs: 'column', sm: 'row' },pl:'10',alignItems: { xs: 'center', sm: 'flex-start' }, gap:'9px'}} >
+
 
 
 const AddIncome = ({editIncData,onClose}) =>
@@ -11,7 +11,7 @@ const AddIncome = ({editIncData,onClose}) =>
     
     const [formData,setformData]=useState({
         amount:"",
-        type:"income",
+        type:"Income",
         category:"",
         description:""
         ,date:""
@@ -30,7 +30,7 @@ const AddIncome = ({editIncData,onClose}) =>
         addInc(amount,formData.type,formData.category,formData.description,formData.date,id)
         setformData({
           amount: "",
-          type: "income",
+          type: "Income",
           category: "",
           description: "",
           date: "",
@@ -65,11 +65,11 @@ const AddIncome = ({editIncData,onClose}) =>
     <TextField select   label="Enter Category" name="category" value={formData.category}
            onChange={(e) =>
             setformData({ ...formData, category: e.target.value })} required sx={{minWidth:190}}>
-                    <MenuItem value="salary">salary</MenuItem>
-                    <MenuItem value="business">business</MenuItem>
-                        <MenuItem value="freelance">freelance</MenuItem>
-                <MenuItem value="rental income">rental income</MenuItem>              
-                    <MenuItem value="others">others</MenuItem>
+                    <MenuItem value="Salary">salary</MenuItem>
+                    <MenuItem value="Business">business</MenuItem>
+                        <MenuItem value="Freelance">freelance</MenuItem>
+                <MenuItem value="Rental Income">rental income</MenuItem>              
+                    <MenuItem value="Others">others</MenuItem>
             </TextField>
           
           
@@ -80,8 +80,8 @@ const AddIncome = ({editIncData,onClose}) =>
   sx={{
     display: "flex",
     gap: 2,
-    flexWrap: "wrap", // allows wrapping
-    justifyContent: "center", // keeps them centered
+    flexWrap: "wrap", 
+    justifyContent: "center", 
   }}
 
   >   

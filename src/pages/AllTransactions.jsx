@@ -8,16 +8,10 @@ const AllTransactions = () =>{
 
 return(
     <Box >
-        <Box component="h1"> All Transactions</Box>
-        <Box  sx={{ overflowX: "auto", width: "100%",
-    borderRadius: "12px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-    mt: 2}}>
-            <table style={{
-      width: "100%",
-      borderCollapse: "collapse",
-      fontFamily: "Arial, sans-serif",
-    }}>
+        <Box component="h1"  sx={{ fontFamily: "Dancing Script"}}> All Transactions</Box>
+        <Box  sx={{ overflowX: "auto", width: "100%",borderRadius: "12px",
+                 boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",mt: 2}}>
+            <table style={{width: "100%", borderCollapse: "collapse",fontFamily: "Arial, sans-serif"}}>
                 <thead>
                     <tr>
                         <th style={{ background: "#FF9A8B", color: "#fff", padding: "12px", textAlign: "left" }}>Name</th>

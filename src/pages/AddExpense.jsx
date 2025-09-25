@@ -92,8 +92,8 @@ const AddExpense = ({editExpData,onClose}) =>
   sx={{
     display: "flex",
     gap: 2,
-    flexWrap: "wrap", // allows wrapping
-    justifyContent: "center", // keeps them centered
+    flexWrap: "wrap", 
+    justifyContent: "center", 
   }}
 >
           

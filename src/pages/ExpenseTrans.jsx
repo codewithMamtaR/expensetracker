@@ -1,8 +1,8 @@
 import React,{ useContext,useState } from "react";
 import { AppContext } from "../context/AppContext";
-import {Box,Button} from "@mui/material";
+import {Box} from "@mui/material";
 
-import { List, ListItem, ListItemText, ListItemSecondaryAction, IconButton } from "@mui/material";
+import { List, ListItem, ListItemText,  IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -31,7 +31,7 @@ const ExpenseTrans = () =>
      return (
          
     <Box>
-        <h2>Expense Transactions:</h2>
+        <Box component="h2"  sx={{ fontFamily: "Dancing Script"}}>Expense History:</Box>
     
         <List sx={{ padding: 0 }}>
              {trans.map((transaction, index) => (
