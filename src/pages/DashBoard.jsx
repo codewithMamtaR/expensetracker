@@ -11,9 +11,9 @@ const DashBoard = ()=>{
     const totalBalance=parseFloat(totalIncome-totalExpense);
 
     const data = [
-        { name: "Income", value: totalIncome },
-        { name: "Expense", value: totalExpense },
-        { name: "Balance", value: totalBalance },
+        { name: "Inc", value: totalIncome },
+        { name: "Exp", value: totalExpense },
+        { name: "Bal", value: totalBalance },
       ];
     
      const COLORS=["#FF9A8B", "#FF6A88", "#FF99AC"];
